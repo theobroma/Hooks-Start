@@ -2,7 +2,7 @@ import React from 'react';
 
 import TableSection from 'containers/TableSection';
 import FormSection from 'containers/FormSection';
-import FormComponent from 'components/Form';
+import SimpleFormExample from 'components/SimpleFormExample';
 
 export default class MainApp extends React.Component {
   render() {
@@ -10,7 +10,7 @@ export default class MainApp extends React.Component {
       <div className="container">
         <div className="header" />
         <main className="main-content">
-          <FormComponent />
+          <SimpleFormExample />
         </main>
       </div>
     );
