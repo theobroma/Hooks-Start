@@ -1,67 +1,62 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
+import './style.scss';
 
-class Form extends Component {
-  constructor(props) {
-    super(props);
+const Form = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+  });
 
-    this.state = {
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
-    };
+  useEffect(() => console.log(formData), [formData]);
 
-    this.handleInputChange = this.handleInputChange.bind(this);
-  }
-
-  handleInputChange(event) {
-    this.setState({
+  const updateFormData = event =>
+    setFormData({
+      ...formData,
       [event.target.name]: event.target.value,
     });
-  }
 
-  render() {
-    const { firstName, lastName, email, password } = this.state;
+  const { firstName, lastName, email, password } = formData;
 
-    return (
-      <form>
-        <input
-          value={firstName}
-          onChange={this.handleInputChange}
-          placeholder="First name"
-          type="text"
-          name="firstName"
-          required
-        />
-        <input
-          value={lastName}
-          onChange={this.handleInputChange}
-          placeholder="Last name"
-          type="text"
-          name="lastName"
-          required
-        />
-        <input
-          value={email}
-          onChange={this.handleInputChange}
-          placeholder="Email address"
-          type="email"
-          name="email"
-          required
-        />
-        <input
-          value={password}
-          onChange={this.handleInputChange}
-          placeholder="Password"
-          type="password"
-          name="password"
-          required
-        />
+  return (
+    <form>
+      <input
+        value={firstName}
+        onChange={e => updateFormData(e)}
+        placeholder="First name"
+        type="text"
+        name="firstName"
+        required
+      />
+      <input
+        value={lastName}
+        onChange={e => updateFormData(e)}
+        placeholder="Last name"
+        type="text"
+        name="lastName"
+        required
+      />
+      <input
+        value={email}
+        onChange={e => updateFormData(e)}
+        placeholder="Email address"
+        type="email"
+        name="email"
+        required
+      />
+      <input
+        value={password}
+        onChange={e => updateFormData(e)}
+        placeholder="Password"
+        type="password"
+        name="password"
+        required
+      />
 
-        <button type="submit">Submit</button>
-      </form>
-    );
-  }
-}
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
 
 export default Form;
