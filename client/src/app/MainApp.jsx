@@ -1,5 +1,7 @@
 import React from 'react';
-import SimpleFormExample from 'components/SimpleFormExample';
+// CHOOSE SOMETHING ONE
+// import SimpleFormExample from 'components/SimpleFormExample';
+import TodoExample from 'components/TodoExample';
 
 export default class MainApp extends React.Component {
   render() {
@@ -7,7 +9,8 @@ export default class MainApp extends React.Component {
       <div className="container">
         <div className="header" />
         <main className="main-content">
-          <SimpleFormExample />
+          {/* <SimpleFormExample /> */}
+          <TodoExample />
         </main>
       </div>
     );
